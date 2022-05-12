@@ -1,0 +1,8 @@
+apiVersion: v2
+name: url-status-check
+description: A Helm chart to deploy a service to check an external URL status and outputs the response in Prometheus format
+type: application
+version: 0.1.0
+appVersion: 1.16.0
+maintainers:
+  - name: Kartheek Anumolu

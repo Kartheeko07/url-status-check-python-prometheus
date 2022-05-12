@@ -1,0 +1,48 @@
+nameOverride: "url-status-check"
+Namespace: default # Change as needed
+replicaCount: 1
+
+image:
+  repository: kartheek/url-status-check
+  pullPolicy: IfNotPresent
+  tag: latest
+
+deploymentStrategy:
+  rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 25%
+  type: RollingUpdate
+
+imagePullSecrets: []
+fullnameOverride: ""
+serviceAccount:
+  create: false
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 1000Mi
+  requests:
+    cpu: 250m
+    memory: 500Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
