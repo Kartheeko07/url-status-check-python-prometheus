@@ -7,7 +7,7 @@ This repository is to check an external URL status and output the response in Pr
 -   [url-status-check-python-prometheus](#url-status-check-python-prometheus)
     -   [Table of contents:](#table-of-contents)
     -   [Overview](#overview)
-    -   [Usage](#usage)
+    -   [Functionality](#functionality)
     -   [Requirements](#requirements)
     -   [Docker Image Creation](#docker-image-creation)
     -   [Deploying into Kubernetes using Helm](#deploying-into-kubernetes-using-helm)
@@ -25,7 +25,7 @@ There are 2 return metrics:
 -   Check whether the URL is up and running
 -   The response time in milliseconds
 
-## Functionality:
+## Functionality
 
 We check for the repsonse code and if it 200 --> that means the service is up and running
 If the response is NOT 200 and something else like a 503 --> the we consider that the service is down
@@ -47,7 +47,7 @@ You can also use the following command to build the image:
 
     docker build -t kartheek/url-status-check .
 
-## Deployimg into Kubernetes using Helm
+## Deploying into Kubernetes using Helm
 
 ### Pre-requisites
 
