@@ -20,22 +20,24 @@ When the endpoint is accessed, this service checks the following two external UR
 -   <https://httpstat.us/200> 
 -   <https://httpstat.us/503>
 
-There are 2 return metrics:
+We are checking for the below two metrics:
 
 -   Check whether the URL is up and running
 -   The response time in milliseconds
 
 ## Functionality
 
-We check for the repsonse code and if it 200 --> that means the service is up and running
-If the response is NOT 200 and something else like a 503 --> the we consider that the service is down
+We check for the repsonse code and if it return 200 --> that means the service is up and running
+If the response is NOT 200 and something else like a 503 --> then we can consider that the service is down
 
 ## Requirements
 
-Python 3.7 or greater version. Also the following modules are required:
+Python 3.7 or greater version. Also the following python modules are required:
 
 -   prometheus_client (0.0.9)
 -   requests (2.27.1)
+
+We have specified the above modules in a requirements.txt
 
 ## Docker Image Creation
 
@@ -53,6 +55,8 @@ You can also use the following command to build the image:
 
 -   You have a K8 cluster up and running
 -   kubectl and helm installed locally on your machine
+    For Helm please refer [https://helm.sh/docs/intro/install/]
+    For Kubectl please refer [https://kubernetes.io/docs/tasks/tools/]
 
 ### Steps
 
