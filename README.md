@@ -10,7 +10,7 @@ This repository is to check an external URL status and output the response in Pr
     -   [Usage](#usage)
     -   [Requirements](#requirements)
     -   [Docker Image Creation](#docker-image-creation)
-    -   [Deployimg into Kubernetes using Helm](#deploying-into-kubernetes-using-helm)
+    -   [Deploying into Kubernetes using Helm](#deploying-into-kubernetes-using-helm)
     -   [Output](#output)
 
 ## Overview

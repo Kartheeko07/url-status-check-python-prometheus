@@ -1,11 +1,10 @@
 import requests
 import time
-import sys
 import traceback
 from prometheus_client import Gauge, start_http_server
 
 # Creating metrics for Prometheus. We are using Gauge as it is the most suitable in this scenario as there is a frequent change in our metric
-URL_UP = Gauge('sample_external_url_up', 'URL Up', ['url'])
+URL_UP_STATUS = Gauge('sample_external_url_up', 'URL UP Status', ['url'])
 URL_RESPONSE_MS = Gauge('sample_external_url_response_ms', 'Response Time', ['url'])
 
 # Function to check the status of the url and return 1 if up and 0 if down
@@ -28,11 +27,11 @@ def check_url_status(url):
         traceback.print_exc()
         # Since there is a timeout service is considered as down
         url_status = 0
-        # Set response time to Inf
+        # Set response time to Inf as it can vary
         response_time = float('inf')    
 
     # Save the URL status as Prometheus output
-    URL_UP.labels(url).set(url_status)
+    URL_UP_STATUS.labels(url).set(url_status)
     # Save response time in milliseconds as Prometheus output
     response_time_ms = response_time * 1000
     URL_RESPONSE_MS.labels(url).set(response_time_ms)
